@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:28:40 by marikhac          #+#    #+#             */
-/*   Updated: 2024/03/09 16:50:54 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:53:18 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	count_words(char *str)
 		if (!if_delim(str))
 			flag = 1;
 		else if (if_delim(str) && flag)
+		{
 			count++;
+			flag = 0;
+		}
 		str++;
 	}
 	return (count + flag);
