@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:28:40 by marikhac          #+#    #+#             */
-/*   Updated: 2024/03/11 14:53:18 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:26:55 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,16 @@ int	current_len(char *str)
 	return (count);
 }
 
-void	dealloc(char *str)
+void	dealloc(char *str, int len)
 {
 	int	i;
-
 	i = 0;
-	while (str[i])
+	while (i < len)
 	{
 		str[i] = 0;
 		i++;
 	}
-	free(str); //we should free it properly by one, not in the end;
+	free(str + len); //we should free it properly by one, not in the end;
 }
 
 void	ft_strncp(char *str, char *result, int len)
@@ -91,7 +90,7 @@ char	**alloc_(char **result, char *str, int count_p)
 		cur_size = current_len(str);
 		result[i] = malloc(cur_size + 1);
 		if (!result[i])
-			dealloc(result[i]);
+			dealloc(result[i], cur_size + 1);
 		ft_strncp(str, result[i], cur_size); // allocates incorrectly;
 		for (int i = 0; i < cur_size; i++)
 			str++;
