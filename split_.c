@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:28:40 by marikhac          #+#    #+#             */
-/*   Updated: 2024/03/13 17:26:55 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/20 16:10:02 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ int	current_len(char *str)
 	return (count);
 }
 
-void	dealloc(char *str, int len)
+static void	*dealloc(char **str, int size)
 {
 	int	i;
+
 	i = 0;
-	while (i < len)
+	while (i < size)
 	{
-		str[i] = 0;
+		free(str[i]);
 		i++;
 	}
-	free(str + len); //we should free it properly by one, not in the end;
+	return (NULL);
 }
 
 void	ft_strncp(char *str, char *result, int len)
@@ -115,26 +116,26 @@ char	**split(char *str)
 	return (alloc_(result, str, count_p));
 }
 
-int main(int argc, char **argv)
-{
-	char **chamich;
-	if(argc == 1)
-	{
-		printf("Too few arguments");
-		return(0);
-	}
-	else if ((argc == 2 && !argv[1][0]) || argc > 2)
-	{
-		printf("Oops, nothihg is put there");
-		return (0);
-	}
-	else
-		chamich = split(argv[1]);
-	for(int i = 0; chamich[i] != NULL; i++)
-	{
-		printf("%s \n", chamich[i]);
-		free(chamich[i]);
-	}
-	free(chamich);
-	return(0);
-}
+// int main(int argc, char **argv)
+// {
+// 	char **chamich;
+// 	if(argc == 1)
+// 	{
+// 		printf("Too few arguments");
+// 		return(0);
+// 	}
+// 	else if ((argc == 2 && !argv[1][0]) || argc > 2)
+// 	{
+// 		printf("Oops, nothihg is put there");
+// 		return (0);
+// 	}
+// 	else
+// 		chamich = split(argv[1]);
+// 	for(int i = 0; chamich[i] != NULL; i++)
+// 	{
+// 		printf("%s \n", chamich[i]);
+// 		free(chamich[i]);
+// 	}
+// 	free(chamich);
+// 	return(0);
+// }

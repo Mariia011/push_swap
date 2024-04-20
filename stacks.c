@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:21:12 by marikhac          #+#    #+#             */
-/*   Updated: 2024/03/13 18:52:27 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/20 20:19:15 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,41 @@ int if_empty(t_stack *a)
 	return(!a);
 }
 
-t_stack init(t_node *node)
+void	err(int mode)
 {
-
+	if(1 == mode)
+		ft_putstr_fd("Error\n", 2);
+	if(2 == mode)
+		ft_putstr_fd("Not enough arguments", 2);
 }
 
-t_node init (int tiv)
+t_node *node_init(const int number)
 {
-	t_node *new_node = malloc(sizeof(t_node));
-	new_node->value_ = tiv;
+	t_node *new_node;
+
+	new_node = malloc(sizeof(t_node));
+	new_node->value_ = number;
 	new_node->next = NULL;
+	return(new_node);
 }
 
-void print_stack(t_stack *head)
-{
-	while(head)
-	{
-		printf("%d", head->value);
-		head = head->next;
-	}
-}
-
-t_stack *new_node(const int val)
+t_stack *new_node(const int number)
 {
 	t_stack *node = malloc(sizeof(t_stack));
 	if (!node)
 		free(node);
-	node->value = val;
-	node->next = NULL;
+	node->head->value_ = number;
 	return (node);
 }
+//before passing arguments, it's better to pass numbers manually. then only to use
+//argc and argv;
+
+//write find biggest_node;
+//write find smallest_node;
+
+
+//first, check if there are correct numbers of arguments and no repetitions;
+//split the argument
 
 int main()
 {
