@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:18:00 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/20 19:55:56 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:36:51 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ void	rev_rotate(t_stack *a)
 	a->head->previous = a->head;
 }
 
-void	push(t_stack *stack, int number)
+void	push(t_stack *stack, t_node *node)
 {
-	t_node	*new_val;
+	t_node	*tmp;
 
-	if (NULL == stack->head)
-		return ;
-	new_val->value_ = number;
-	new_val->next = stack->head;
+	if(stack->head->prev == NULL)
+	{
+		stack->head->prev = tmp;
+	}
+	tmp = stack->head;
+	stack->head = node;
+	stack->prev = 
+ 	node->next = stack->head;
 }
