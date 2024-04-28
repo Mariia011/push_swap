@@ -12,16 +12,20 @@ OBJS = $(MANDATORY:=./.o)
 all: $(NAME)
 
 $(NAME) : $(MANDATORY)
-	$(GCC) -o $@
+	$(MANDATORY)
 
+$(MANDATORY) : $()
+	$()
 
 
 clean :
-	rm *.OBJS
-	rm 
+	rm $(OBJS)
+
 fclean :
 	clean $(NAME)
+
 re :
 	fclean all
-.PHONY
+
+.PHONY :
 	clean fclean re all

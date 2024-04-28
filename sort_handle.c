@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:18:00 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/25 15:36:20 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/28 15:28:35 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	rotate(t_stack *a)
 {
 	if (a->head == NULL)
 		return ;
-	a->head = a->head->previous;
+	a->head = a->head->prev;
 }
 
 void	rev_rotate(t_stack *a)
 {
 	if (a->head == NULL)
 		return ;
-	a->head->previous = a->head;
+	a->head->prev = a->head;
 }
 
 
