@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:18:00 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/28 15:28:35 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/29 21:26:53 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,37 @@ void	swap(t_stack *a)
 	tmp = a->head->value_;
 	a->head->value_ = a->head->next->value_;
 	a->head->next->value_ = tmp;
+	printf("s%c\n", a->name);
 }
 
-void	rotate(t_stack *a)
+void	rotate(t_stack *stack, t_mode mode)
 {
-	if (a->head == NULL)
+	if (if_empty(stack))
 		return ;
-	a->head = a->head->prev;
+	stack->head = stack->head->next;
+	if(mode == visible)
+		printf("r%c\n", stack->name);
 }
 
-void	rev_rotate(t_stack *a)
+void	rev_rotate(t_stack *stack, t_mode mode)
 {
-	if (a->head == NULL)
+	if (if_empty(stack))
 		return ;
-	a->head->prev = a->head;
+	stack->head = stack->head->prev;
+	if(mode == visible)
+		printf("rr%c\n", stack->name);
 }
 
+void	rrr(t_stack *a, t_stack *b)
+{
+	rev_rotate(a, silent);
+	rev_rotate(b, silent);
+	printf("rrr\n");
+}
 
+void	rr(t_stack *a, t_stack *b)
+{
+	rotate(a, silent);
+	rotate(b, silent);
+	printf("rr\n");
+}
