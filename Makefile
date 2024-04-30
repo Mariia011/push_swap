@@ -1,25 +1,34 @@
 NAME = push_swap
-GCC = gcc -Wall -Wextra -Werror
-MANDATORY = ./*.c
-
+GCC = gcc
+FLAGS =  -Wall -Wextra -Werror
 HELPER_PATH = ./libft/
-HELPER = $(HELPER_PATH)*.c
-LIBFT = $(HELPER_PATH)libft.a
 
-# OBJS = $(MANDATORY:=./.o)
+LIBFT = $(HELPER_PATH)libft.a
+MAKE = make -C
+
+MANDATORY = $(wildcard ./*.c)
+OBJS = $(patsubst %.c, %.o, $(MANDATORY))
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	$(GCC) $(OBJS) -o $@
+$(NAME) : $(OBJS) $(LIBFT)
+	$(GCC) $(FLAGS) $(OBJS) $(LIBFT) -o $@
+
+./%.o : ./%.c
+	$(GCC) -c $< -o $@
+
+$(LIBFT) :
+	$(MAKE) $(HELPER_PATH)
 
 clean :
-	rm $(OBJS)
+	$(MAKE) $(HELPER_PATH) clean
+	rm -f $(OBJS)
 
-fclean :
-	clean $(NAME)
-re :
-	fclean all
+fclean : clean
+	$(MAKE) $(HELPER_PATH) fclean
+	rm -f $(NAME)
+
+re : fclean all
 
 .PHONY :
 	clean fclean re all
