@@ -2,6 +2,27 @@
 #include "push_swap.h"
 
 
+t_node	*find(int const val, t_stack *stack)
+{
+	t_node	*l;
+	t_node	*f;
+
+	if (if_empty(stack))
+		return (NULL);
+	l = stack->head->prev;
+	f = stack->head;
+	while (f != l)
+	{
+		if (f->value_ == val)
+			return (f);
+		f = f->next;
+	}
+	if (l->value_ == val)
+		return (l);
+	return (NULL);
+}
+
+
 static size_t	_atoi_helper(char const *const str, int i, int res)
 {
 	while (str[i])
@@ -51,7 +72,7 @@ int	alloc_nums(int ac, char **av, t_stack *stack)
 		if (invalid_input == current || ((invalid_input != current)
 				&& find(current, stack)))
 			return (-1);
-		push((int const)current, stack);
+		push_init(stack, (int)current);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 14:45:39 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:00:40 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	alloc_nums(int ac, char **av, t_stack *stack);
 void	free_mat(char **mat);
 void	destroy(t_stack **stack);
 t_stack	*init_from_input(int argc, char **argv, const char letter);
+t_node	*find(int const val, t_stack *stack);
+int if_empty_args(int argc, char **argv);
 
 
 #endif
