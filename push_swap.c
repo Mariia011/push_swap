@@ -6,19 +6,11 @@
 /*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:21:12 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 14:51:33 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:13:00 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void fill_stack(t_stack * stack, int * arr, const int SIZE)
-// {
-// 	for (int i = SIZE - 1; i >= 0; i--)
-// 	{
-// 		push_stack()
-// 	}
-// }
 
 int	main(int argc, char **argv)
 {
