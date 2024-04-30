@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 13:38:50 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:45:39 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include "./libft/libft.h"
 
+#define invalid_input 2147483650
 
 typedef enum e_mode{
 	silent,
@@ -36,6 +37,8 @@ typedef struct s_stack{
 	t_node 	*head;
 	char 	name;
 }	t_stack;
+
+
 
 
 typedef void (*fptr)(t_stack *stack, t_mode mode); // pointer to rotate and rev rotate
@@ -67,5 +70,13 @@ t_stack *stack_init_empty(const char letter);
 void process_til_sorted(t_stack *stack, t_node *cheap);
 
 void sort_five(t_stack *stack, t_stack *stack1);
+
+
+// parcing
+int	alloc_nums(int ac, char **av, t_stack *stack);
+void	free_mat(char **mat);
+void	destroy(t_stack **stack);
+t_stack	*init_from_input(int argc, char **argv, const char letter);
+
 
 #endif
