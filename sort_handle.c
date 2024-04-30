@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:18:00 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/29 21:26:53 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/30 12:33:44 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rotate(t_stack *stack, t_mode mode)
 	if (if_empty(stack))
 		return ;
 	stack->head = stack->head->next;
-	if(mode == visible)
+	if (mode == visible)
 		printf("r%c\n", stack->name);
 }
 
@@ -36,7 +36,7 @@ void	rev_rotate(t_stack *stack, t_mode mode)
 	if (if_empty(stack))
 		return ;
 	stack->head = stack->head->prev;
-	if(mode == visible)
+	if (mode == visible)
 		printf("rr%c\n", stack->name);
 }
 
