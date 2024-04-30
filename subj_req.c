@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_handle.c                                      :+:      :+:    :+:   */
+/*   subj_req.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 19:18:00 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 12:33:44 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:30:03 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ void	rr(t_stack *a, t_stack *b)
 	rotate(a, silent);
 	rotate(b, silent);
 	printf("rr\n");
+}
+
+void push_from_to(t_stack *stack1, t_stack *stack2)
+{
+	int value;
+	if(if_empty(stack1))
+	{
+		return ;
+	}
+	value = pop(stack1);
+	push_init(stack2, value);
+	printf("p%c\n", stack2->name);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manipulations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:31:21 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 12:34:17 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:30:00 by aamirkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,3 @@ int pop(t_stack *stack)
 	return(val);
 }
 
-void push_from_to(t_stack *stack1, t_stack *stack2)
-{
-	int value;
-	if(if_empty(stack1))
-	{
-		return ;
-	}
-	value = pop(stack1);
-	push_init(stack2, value);
-	printf("p%c\n", stack2->name);
-}
