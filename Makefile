@@ -1,29 +1,23 @@
 NAME = push_swap
 GCC = gcc -Wall -Wextra -Werror
-MANDATORY = ./wildcard.c
+MANDATORY = ./*.c
 
 HELPER_PATH = ./libft/
 HELPER = $(HELPER_PATH)*.c
 LIBFT = $(HELPER_PATH)libft.a
 
-OBJS = $(MANDATORY:=./.o)
-#BONUS
+# OBJS = $(MANDATORY:=./.o)
 
 all: $(NAME)
 
-$(NAME) : $(MANDATORY)
-	$(MANDATORY)
-
-$(MANDATORY) : $()
-	$()
-
+$(NAME) : $(OBJS)
+	$(GCC) $(OBJS) -o $@
 
 clean :
 	rm $(OBJS)
 
 fclean :
 	clean $(NAME)
-
 re :
 	fclean all
 

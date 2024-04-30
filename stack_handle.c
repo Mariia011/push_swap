@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_handle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:31:57 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 14:56:29 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:41:07 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void	clear_it(t_stack *stack)
 
 	if (stack == NULL)
 		return ;
+	if (stack->head == NULL)
+	{
+		free(stack);
+		return;
+	}
 
 	tmp = stack->head->next;
 	while (tmp != stack->head)
@@ -85,7 +90,7 @@ void	clear_it(t_stack *stack)
 		tmp = jupa;
 	}
 	free(stack->head);
-	free(stack);
+	stack->head = NULL;
 }
 
 void	print_stack(t_stack *choto)

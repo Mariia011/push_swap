@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aamirkha <aamirkha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:00:40 by aamirkha         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:41:10 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,10 @@ void push_from_to(t_stack *stack1, t_stack *stack2);
 t_stack *stack_init_empty(const char letter);
 void process_til_sorted(t_stack *stack, t_node *cheap);
 
-void sort_five(t_stack *stack, t_stack *stack1);
+void sort_nums(t_stack *stack, t_stack *stack1);
 
+int count_of_nodes(t_stack *stack);
+void up_to_ten(t_stack *stack, t_stack *stack1);
 
 // parcing
 int	alloc_nums(int ac, char **av, t_stack *stack);
@@ -79,6 +81,8 @@ void	destroy(t_stack **stack);
 t_stack	*init_from_input(int argc, char **argv, const char letter);
 t_node	*find(int const val, t_stack *stack);
 int if_empty_args(int argc, char **argv);
+
+
 
 
 #endif
