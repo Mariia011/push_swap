@@ -1,0 +1,24 @@
+hehehehehhe
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Tue Apr 30 20:05:02 2024 +0400
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   error_handling.c
+#	modified:   intput_parcing.c
+#	modified:   manipulations.c
+#	new file:   push_swap
+#	modified:   push_swap.c
+#	modified:   push_swap.h
+#	modified:   sort_for_three.c
+#	modified:   stack_handle.c
+#	modified:   stack_init.c
+#	modified:   subj_req.c
+#	modified:   traces.txt
+#	modified:   up_to_ten.c
+#
