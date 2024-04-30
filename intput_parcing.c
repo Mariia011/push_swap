@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   intput_parcing.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/30 19:55:38 by marikhac          #+#    #+#             */
+/*   Updated: 2024/04/30 19:56:00 by marikhac         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	destroy(t_stack **stack)
 {
 	clear_it(*stack);
+	free(*stack);
 	*stack = NULL;
 }
 
@@ -20,16 +31,18 @@ static int	_ac_count(char **mat)
 	return (count);
 }
 
-int if_empty_args(int argc, char **argv)
+int	if_empty_args(int argc, char **argv)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (i < argc)
 	{
 		if (*(argv[i]) == '\0')
-			return 1;
+			return (1);
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 t_stack	*init_from_input(int argc, char **argv, const char letter)
@@ -42,16 +55,17 @@ t_stack	*init_from_input(int argc, char **argv, const char letter)
 	if (argc == 2)
 	{
 		mat = ft_split(argv[1], ' ');
-		if (if_empty_args(argc, argv) || alloc_nums(_ac_count(mat), mat, stack) == -1)
+		if (if_empty_args(argc, argv) || alloc_nums(_ac_count(mat), mat,
+				stack) == -1)
 		{
 			free_mat(mat);
-			// destroy(&stack); // idk
+			destroy(&stack);
 			return (NULL);
 		}
 	}
 	else if (argc < 2 || alloc_nums(argc - 1, argv + 1, stack) == -1)
 	{
-		// destroy(&stack); // idk
+		destroy(&stack);
 		return (NULL);
 	}
 	free_mat(mat);

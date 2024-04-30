@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:31:57 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 16:41:07 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/04/30 20:03:46 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	if_empty(t_stack *stack)
 	return (stack->head == NULL);
 }
 
-fptr	find_route(t_stack *stack, t_node *target)
+t_fptr	find_route(t_stack *stack, t_node *target)
 {
 	t_node	*left;
 	t_node	*right;
@@ -38,7 +38,7 @@ fptr	find_route(t_stack *stack, t_node *target)
 
 void	process_til_sorted(t_stack *stack, t_node *cheap)
 {
-	fptr	f;
+	t_fptr	f;
 
 	f = find_route(stack, cheap);
 	while (stack->head != cheap)
@@ -61,14 +61,6 @@ t_node	*if_sorted(t_stack *stack)
 	return (cheap);
 }
 
-void	err(int mode)
-{
-	if (1 == mode)
-		ft_putstr_fd("Error\n", 2);
-	if (2 == mode)
-		ft_putstr_fd("Not enough arguments", 2);
-}
-
 void	clear_it(t_stack *stack)
 {
 	t_node	*tmp;
@@ -78,10 +70,8 @@ void	clear_it(t_stack *stack)
 		return ;
 	if (stack->head == NULL)
 	{
-		free(stack);
-		return;
+		return ;
 	}
-
 	tmp = stack->head->next;
 	while (tmp != stack->head)
 	{
@@ -91,23 +81,4 @@ void	clear_it(t_stack *stack)
 	}
 	free(stack->head);
 	stack->head = NULL;
-}
-
-void	print_stack(t_stack *choto)
-{
-	t_node	*tmp;
-
-	if (if_empty(choto) == 1)
-	{
-		free(choto);
-		return ;
-	}
-	tmp = choto->head;
-	printf("%i\n", tmp->value_);
-	tmp = tmp->next;
-	while (choto->head != tmp)
-	{
-		printf("%i\n", tmp->value_);
-		tmp = tmp->next;
-	}
 }
