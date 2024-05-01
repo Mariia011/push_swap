@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 20:01:14 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/01 17:43:42 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_mode
 typedef struct s_node
 {
 	int				value_;
+	long long int 	index;
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_node;
@@ -44,6 +45,7 @@ typedef struct s_stack
 typedef void		(*t_fptr)(t_stack *stack, t_mode mode);
 // pointer to rotate and rev rotate
 
+
 t_node				*if_sorted(t_stack *stack);
 t_fptr				find_route(t_stack *stack, t_node *target);
 t_node				*the_cheapest(t_stack *a);
@@ -53,12 +55,11 @@ void				swap(t_stack *a);
 void				rotate(t_stack *a, t_mode mode);
 void				rev_rotate(t_stack *a, t_mode mode);
 int					pop(t_stack *stack);
-void				pop_from_to(t_stack *stack1, t_stack *stack2);
 void				rr(t_stack *a, t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
 
+void				__exit_handle(char *err);
 int					if_empty(t_stack *stack);
-void				print_stack(t_stack *choto);
 void				clear_it(t_stack *stack);
 
 void				push_init(t_stack *stack, const int num);
@@ -70,19 +71,25 @@ void				push_from_to(t_stack *stack1, t_stack *stack2);
 t_stack				*stack_init_empty(const char letter);
 void				process_til_sorted(t_stack *stack, t_node *cheap);
 
-void				sort_nums(t_stack *stack, t_stack *stack1);
 
 int					count_of_nodes(t_stack *stack);
 void				up_to_ten(t_stack *stack, t_stack *stack1);
 
-// parcing
+// parcing error handling
 int					alloc_nums(int ac, char **av, t_stack *stack);
 void				free_mat(char **mat);
 void				destroy(t_stack **stack);
 t_stack				*init_from_input(int argc, char **argv, const char letter);
 t_node				*find(int const val, t_stack *stack);
-int					if_empty_args(int argc, char **argv);
+int					if_empty_argc(int argc, char **argv);
 
-void				__exit_handle(char *err);
+int	count_nodes(t_stack *stack);
+
+//offset calculations
+int	find_offset(t_stack *the_a);
+
+
+// void				sort_nums(t_stack *stack, t_stack *stack1);
+// void				print_stack(t_stack *choto);
 
 #endif

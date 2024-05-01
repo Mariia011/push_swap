@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:55:35 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 19:57:51 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:43:30 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static size_t	_atoi_helper(char const *const str, int i, int res)
 	return (res);
 }
 
-static size_t	_atoi(char const *const str)
+static size_t	_atoi(char *const str)
 {
 	int			i;
 	long long	res;
@@ -54,7 +54,7 @@ static size_t	_atoi(char const *const str)
 	i = 0;
 	while (str[i] && str[i] == ' ')
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if ((str[i] == '+' || str[i] == '-') && str[i+1])
 	{
 		if (str[i] == '-')
 			sign = -1;
@@ -79,8 +79,8 @@ int	alloc_nums(int ac, char **av, t_stack *stack)
 	while (i < ac)
 	{
 		current = _atoi(av[ac - 1 - i]);
-		if (BAD_VALUE == current || ((BAD_VALUE != current)
-				&& find(current, stack)))
+		if (BAD_VALUE == current || ((BAD_VALUE != current) && find(current,
+					stack)))
 			return (-1);
 		push_init(stack, (int)current);
 		i++;

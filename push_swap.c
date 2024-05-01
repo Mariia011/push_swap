@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:21:12 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 20:19:03 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:41:23 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void	__exit_handle(char *err)
 {
 	ft_putstr_fd(err, 2);
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	exit(EXIT_FAILURE);
 }
 
-// ./push_swap -
 // ./push_swap "  "
 
 int	esh_main(int argc, char **argv)
@@ -44,6 +43,6 @@ int	esh_main(int argc, char **argv)
 int	main(int ac, char **av)
 {
 	esh_main(ac, av);
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }
