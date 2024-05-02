@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:55:35 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/01 13:43:30 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:56:22 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static size_t	_atoi(char *const str)
 	i = 0;
 	while (str[i] && str[i] == ' ')
 		i++;
-	if ((str[i] == '+' || str[i] == '-') && str[i+1])
+	if ((str[i] == '+' || str[i] == '-') && str[i + 1])
 	{
 		if (str[i] == '-')
 			sign = -1;

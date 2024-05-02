@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:21:12 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/01 15:41:23 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:56:47 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	esh_main(int argc, char **argv)
 		__exit_handle("Error\n");
 	}
 	the_b = stack_init_empty('b');
-	up_to_ten(the_a, the_b);
+	sort_it(the_a, the_b);
 	clear_it(the_a);
 	clear_it(the_b);
 	free(the_a);

@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/01 17:43:42 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:57:05 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef enum e_mode
 typedef struct s_node
 {
 	int				value_;
-	long long int 	index;
+	long long int	index;
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_node;
@@ -44,7 +44,6 @@ typedef struct s_stack
 
 typedef void		(*t_fptr)(t_stack *stack, t_mode mode);
 // pointer to rotate and rev rotate
-
 
 t_node				*if_sorted(t_stack *stack);
 t_fptr				find_route(t_stack *stack, t_node *target);
@@ -71,8 +70,7 @@ void				push_from_to(t_stack *stack1, t_stack *stack2);
 t_stack				*stack_init_empty(const char letter);
 void				process_til_sorted(t_stack *stack, t_node *cheap);
 
-
-int					count_of_nodes(t_stack *stack);
+int					count_nodes(t_stack *stack);
 void				up_to_ten(t_stack *stack, t_stack *stack1);
 
 // parcing error handling
@@ -83,11 +81,13 @@ t_stack				*init_from_input(int argc, char **argv, const char letter);
 t_node				*find(int const val, t_stack *stack);
 int					if_empty_argc(int argc, char **argv);
 
-int	count_nodes(t_stack *stack);
+int					count_nodes(t_stack *stack);
 
-//offset calculations
-int	find_offset(t_stack *the_a);
-
+// sort it
+void				sort_it(t_stack *the_a, t_stack *the_b);
+int					find_offset(t_stack *the_a);
+void				quick_sort(int *arr, int low, int high);
+int					*make_arr(t_stack *the_a);
 
 // void				sort_nums(t_stack *stack, t_stack *stack1);
 // void				print_stack(t_stack *choto);

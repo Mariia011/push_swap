@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:24:17 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/01 17:59:53 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:58:58 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ static int	ft_cbrt(int x)
 
 	epsilon = 1;
 	guess = 1;
-	do
+	delta = (x / (guess * guess) - guess) / 3;
+	guess += delta;
+	while (delta > epsilon || delta < -epsilon)
 	{
 		delta = (x / (guess * guess) - guess) / 3;
 		guess += delta;
-	} while (delta > epsilon || delta < -epsilon);
+	}
 	return (guess);
 }
 
@@ -64,7 +66,7 @@ int	find_offset(t_stack *the_a)
 	int	sqrt_x;
 	int	cbrt_x;
 
-	x = count_of_nodes(the_a);
+	x = count_nodes(the_a);
 	sqrt_x = ft_sqrt(x);
 	cbrt_x = ft_cbrt(x);
 	result = sqrt_x + cbrt_x;

@@ -6,75 +6,91 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 14:07:27 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/01 18:09:36 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 18:04:44 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_nodes(t_stack *stack)
+static int	search_index(int *arr, t_node *tmp)
 {
-	t_node	*tmp;
-	int		count;
+	int	i;
 
-	count = 1;
-	if (stack == NULL)
-		return (0);
-	tmp = stack->head->next;
-	while (tmp != stack->head)
+	i = 0;
+	while (arr[i] != tmp->value_)
 	{
-		count++;
-		tmp = tmp->next;
+		i++;
 	}
-	return (count);
+	return (i);
 }
 
-void sort_index(t_stack *the_a)
+static void	sort_index(int *arr, t_stack *the_a)
 {
-	int i = 0;
-	while(i < count_nodes(the_a))
+	int		i;
+	int		count;
+	t_node	*tmp;
+
+	i = 0;
+	count = count_nodes(the_a);
+	tmp = the_a->head->next;
+	while (tmp != the_a->head)
 	{
-		return ;
+		tmp->index = search_index(arr, tmp);
+		tmp = tmp->next;
+	}
+	the_a->head->index = search_index(arr, the_a->head);
+}
+
+static void	sort_the_a(t_stack *the_a, t_stack *the_b, int *arr)
+{
+	int	index;
+	int	offset;
+	int	size;
+
+	index = 0;
+	offset = find_offset(the_a);
+	size = count_nodes(the_a);
+	while (index < size)
+	{
+		if (the_a->head->value_ <= arr[index])
+		{
+			push_from_to(the_a, the_b);
+			rotate(the_b, visible);
+			index++;
+		}
+		else if (the_a->head->value_ <= arr[index + offset])
+		{
+			push_from_to(the_a, the_b);
+			index++;
+		}
+		else
+			rotate(the_a, visible);
 	}
 }
 
 void	sort_it(t_stack *the_a, t_stack *the_b)
 {
-	int		counter;
-	int 	offset;
-	int 	index;
+	int	*arr;
 
 	if (if_empty(the_a))
 		return ;
-	index = 0;
-	offset = find_offset(the_a);
-	counter = count_nodes(the_a);
-	if(count_of_nodes(the_a) <= 10)
+	arr = make_arr(the_a);
+	if (count_nodes(the_a) <= 50)
 	{
 		up_to_ten(the_a, the_b);
 		return ;
 	}
-
-	while(index < counter)
-	{
-		if(node-> <= counter)
-		{
-			push_from_to(the_a, the_b);
-			rev_rotate(the_b, visible);
-			counter++;
-		}
-		else if(i <= x + n)
-		{
-			push_from_to(the_a, the_b);
-			counter++;
-		}
-		else
-			rotate(the_a, visible);
-		// process_til_sorted(the_a, cheap);
-		// push_from_to(the_a, the_b);
-	}
+	sort_index(arr, the_a);
+	sort_the_a(the_a, the_b, arr);
 	while (!if_empty(the_b))
 	{
-		process_til_sorted(the_a, the_cheapest(the_b));
+		if (the_b->head == the_biggest(the_b))
+			push_from_to(the_b, the_a);
+		else
+		{
+			process_til_sorted(the_b, the_biggest(the_b));
+			push_from_to(the_b, the_a);
+		}
 	}
+	free(arr);
 }
