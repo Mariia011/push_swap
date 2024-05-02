@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:55:38 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/01 13:53:16 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:00:00 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ t_stack	*init_from_input(int argc, char **argv, const char letter)
 	if (argc == 2)
 	{
 		mat = ft_split(argv[1], ' ');
-		if (if_empty_argc(argc, argv) || alloc_nums(argc_count(mat), mat,
-				stack) == -1)
+		if (mat[0] == NULL || if_empty_argc(argc, argv)
+			|| alloc_nums(argc_count(mat), mat, stack) == -1)
 		{
 			free_mat(mat);
 			destroy(&stack);

@@ -24,6 +24,7 @@ $(OBJS) : $(MANDATORY)
 	$(CC) $(CFLAGS) $(MANDATORY)
 
 bonus : $(NAME) $(BONUS_OBJS)
+
 	ar -rcs $(NAME) $(BONUS_OBJS)
 
 $(BONUS_OBJS) : $(BONUS)

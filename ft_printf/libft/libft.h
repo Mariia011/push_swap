@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:59:03 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/07 19:01:42 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 19:56:18 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <ctype.h>
 # include <limits.h>
 # include <stddef.h> //maybe needed
-# include <stdio.h>
+// # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>

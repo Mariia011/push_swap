@@ -1,9 +1,11 @@
 NAME = push_swap
 GCC = gcc
 FLAGS =  -Wall -Wextra -Werror
-HELPER_PATH = ./libft/
+HELPER_PATH = ./ft_printf/
+# BONUS = ./checker/
+# PRINTF = ./ft_printf/ft_printf.h
 
-LIBFT = $(HELPER_PATH)libft.a
+PRINTF = $(HELPER_PATH)libftprintf.a
 MAKE = make -C
 
 MANDATORY = $(wildcard ./*.c)
@@ -11,13 +13,13 @@ OBJS = $(patsubst %.c, %.o, $(MANDATORY))
 
 all: $(NAME)
 
-$(NAME) : $(OBJS) $(LIBFT)
-	$(GCC) $(FLAGS) $(OBJS) $(LIBFT) -o $@
+$(NAME) : $(OBJS) $(PRINTF)
+	$(GCC) $(FLAGS) $(OBJS) $(PRINTF) -o $@
 
 ./%.o : ./%.c
-	$(GCC) -c $< -o $@
+	$(GCC) $(FLAGS) -c $< -o $@
 
-$(LIBFT) :
+$(PRINTF) :
 	$(MAKE) $(HELPER_PATH)
 
 clean :

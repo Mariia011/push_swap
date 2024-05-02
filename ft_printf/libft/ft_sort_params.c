@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marikhac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:59:08 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/29 17:47:10 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:01:59 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-// void	ft_putchar(char c)
-// {
-// 	write(1, &c, 1);
-// }
+void	ft_putchar(char c);
+/*{
+	write(1, &c, 1);
+}*/
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -78,25 +76,25 @@ void	_qsort(char **arr, int low, int high)
 	}
 }
 
-// int	main(int ac, char **av)
-// {
-// 	int	index;
-// 	int	jindex;
+int	main(int ac, char **av)
+{
+	int	index;
+	int	jindex;
 
-// 	if (ac > 2)
-// 	{
-// 		_qsort(av + 1, 0, ac - 2);
-// 	}
-// 	index = 1;
-// 	while (index < ac)
-// 	{
-// 		jindex = 0;
-// 		while (av[index][jindex])
-// 		{
-// 			ft_putchar(av[index][jindex++]);
-// 		}
-// 		ft_putchar('\n');
-// 		index++;
-// 	}
-// 	return (0);
-// }
+	if (ac > 2)
+	{
+		_qsort(av + 1, 0, ac - 2);
+	}
+	index = 1;
+	while (index < ac)
+	{
+		jindex = 0;
+		while (av[index][jindex])
+		{
+			ft_putchar(av[index][jindex++]);
+		}
+		ft_putchar('\n');
+		index++;
+	}
+	return (0);
+}

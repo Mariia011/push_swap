@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:31:21 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 20:04:26 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/02 19:54:09 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push_from_to(t_stack *stack1, t_stack *stack2)
 	}
 	value = pop(stack1);
 	push_init(stack2, value);
-	printf("p%c\n", stack2->name);
+	ft_printf("p%c\n", stack2->name);
 }
 
 int	pop(t_stack *stack)
@@ -90,11 +90,11 @@ t_node	*the_biggest(t_stack *a)
 // 		return ;
 // 	}
 // 	tmp = choto->head;
-// 	printf("%i\n", tmp->value_);
+// 	ft_printf("%i\n", tmp->value_);
 // 	tmp = tmp->next;
 // 	while (choto->head != tmp)
 // 	{
-// 		printf("%i\n", tmp->value_);
+// 		ft_printf("%i\n", tmp->value_);
 // 		tmp = tmp->next;
 // 	}
 // }
