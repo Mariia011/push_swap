@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:10:27 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 17:56:15 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:50:38 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	*make_arr(t_stack *the_a)
 
 	i = 0;
 	n = count_nodes(the_a);
-	arr = malloc(sizeof(int) * count_nodes(the_a));
+	arr = malloc(sizeof(int) * n);
 	if (!arr)
 		__exit_handle("Malloc error\n");
 	tmp = the_a->head;

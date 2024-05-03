@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 14:07:27 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 18:04:44 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:11:41 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ static void	sort_the_a(t_stack *the_a, t_stack *the_b, int *arr)
 	{
 		if (the_a->head->value_ <= arr[index])
 		{
-			push_from_to(the_a, the_b);
+			push_from_to(the_a, the_b, visible);
 			rotate(the_b, visible);
 			index++;
 		}
 		else if (the_a->head->value_ <= arr[index + offset])
 		{
-			push_from_to(the_a, the_b);
+			push_from_to(the_a, the_b, visible);
 			index++;
 		}
 		else
@@ -74,22 +74,22 @@ void	sort_it(t_stack *the_a, t_stack *the_b)
 
 	if (if_empty(the_a))
 		return ;
-	arr = make_arr(the_a);
 	if (count_nodes(the_a) <= 50)
 	{
 		up_to_ten(the_a, the_b);
 		return ;
 	}
+	arr = make_arr(the_a);
 	sort_index(arr, the_a);
 	sort_the_a(the_a, the_b, arr);
 	while (!if_empty(the_b))
 	{
 		if (the_b->head == the_biggest(the_b))
-			push_from_to(the_b, the_a);
+			push_from_to(the_b, the_a, visible);
 		else
 		{
 			process_til_sorted(the_b, the_biggest(the_b));
-			push_from_to(the_b, the_a);
+			push_from_to(the_b, the_a, visible);
 		}
 	}
 	free(arr);

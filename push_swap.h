@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 19:59:23 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:08:29 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "./ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <limits.h>
-// # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -50,12 +49,12 @@ t_fptr				find_route(t_stack *stack, t_node *target);
 t_node				*the_cheapest(t_stack *a);
 t_node				*the_biggest(t_stack *a);
 
-void				swap(t_stack *a);
+void				swap(t_stack *a, t_mode mode);
 void				rotate(t_stack *a, t_mode mode);
 void				rev_rotate(t_stack *a, t_mode mode);
 int					pop(t_stack *stack);
-void				rr(t_stack *a, t_stack *b);
-void				rrr(t_stack *a, t_stack *b);
+void				rr(t_stack *a, t_stack *b, t_mode mode);
+void				rrr(t_stack *a, t_stack *b, t_mode mode);
 
 void				__exit_handle(char *err);
 int					if_empty(t_stack *stack);
@@ -66,7 +65,7 @@ t_stack				*stack_init(const int num, const char letter);
 t_node				*node_init(const int number);
 void				sort_three(t_stack *stack, t_stack *b);
 
-void				push_from_to(t_stack *stack1, t_stack *stack2);
+void				push_from_to(t_stack *stack1, t_stack *stack2, t_mode mode);
 t_stack				*stack_init_empty(const char letter);
 void				process_til_sorted(t_stack *stack, t_node *cheap);
 

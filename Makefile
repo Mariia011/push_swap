@@ -1,4 +1,4 @@
-NAME = push_swap
+NAME = ch
 GCC = gcc
 FLAGS =  -Wall -Wextra -Werror
 HELPER_PATH = ./ft_printf/
@@ -14,7 +14,7 @@ OBJS = $(patsubst %.c, %.o, $(MANDATORY))
 all: $(NAME)
 
 $(NAME) : $(OBJS) $(PRINTF)
-	$(GCC) $(FLAGS) $(OBJS) $(PRINTF) -o $@
+	$(GCC) $(FLAGS) ./checker/checker.c $(OBJS) $(PRINTF) -o $@
 
 ./%.o : ./%.c
 	$(GCC) $(FLAGS) -c $< -o $@

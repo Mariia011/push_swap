@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:31:57 by marikhac          #+#    #+#             */
-/*   Updated: 2024/04/30 20:03:46 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:26:47 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_node	*if_sorted(t_stack *stack)
 void	clear_it(t_stack *stack)
 {
 	t_node	*tmp;
-	t_node	*jupa;
+	t_node	*to_free;
 
 	if (stack == NULL)
 		return ;
@@ -75,9 +75,9 @@ void	clear_it(t_stack *stack)
 	tmp = stack->head->next;
 	while (tmp != stack->head)
 	{
-		jupa = tmp->next;
+		to_free = tmp->next;
 		free(tmp);
-		tmp = jupa;
+		tmp = to_free;
 	}
 	free(stack->head);
 	stack->head = NULL;

@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 17:19:24 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 19:58:20 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:10:37 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 static void	case_132(t_stack *stack, t_stack *b)
 {
-	push_from_to(stack, b);
-	swap(stack);
-	push_from_to(b, stack);
+	push_from_to(stack, b, visible);
+	swap(stack, visible);
+	push_from_to(b, stack, visible);
 }
 
 static void	case_321(t_stack *stack)
 {
-	swap(stack);
+	swap(stack, visible);
 	rev_rotate(stack, visible);
 }
 
 static void	case_213(t_stack *stack)
 {
-	swap(stack);
+	swap(stack, visible);
 }
 
 void	sort_three(t_stack *stack, t_stack *b)

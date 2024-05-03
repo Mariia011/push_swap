@@ -6,13 +6,13 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:34:03 by marikhac          #+#    #+#             */
-/*   Updated: 2024/02/24 15:54:58 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:44:49 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s, char const c)
+size_t	ft_strlen_gnl(const char *s, char const c)
 {
 	int	i;
 
@@ -30,8 +30,8 @@ void	ft_free_old(char **memory)
 	int		len_free;
 	char	*tmp;
 
-	len_free = ft_strlen(*memory, '\n');
-	tmp = malloc(ft_strlen(*memory, 0) - len_free + 1);
+	len_free = ft_strlen_gnl(*memory, '\n');
+	tmp = malloc(ft_strlen_gnl(*memory, 0) - len_free + 1);
 	i = 0;
 	while ((*memory)[len_free] != '\0')
 		tmp[i++] = (*memory)[len_free++];
@@ -46,7 +46,7 @@ char	*ft_strdup(char const *const memory)
 	int		i;
 	char	*str;
 
-	len = ft_strlen(memory, '\n');
+	len = ft_strlen_gnl(memory, '\n');
 	i = 0;
 	str = malloc(len + 1);
 	while (i < len)
@@ -65,7 +65,7 @@ void	ft_append(char **memory, char *buffer)
 	int		d;
 	char	*tmp;
 
-	tmp = malloc(ft_strlen(*memory, 0) + ft_strlen(buffer, 0) + 1);
+	tmp = malloc(ft_strlen_gnl(*memory, 0) + ft_strlen_gnl(buffer, 0) + 1);
 	i = 0;
 	d = 0;
 	t = 0;

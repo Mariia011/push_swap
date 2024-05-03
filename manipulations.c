@@ -6,13 +6,13 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:31:21 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 19:54:09 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:08:11 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_from_to(t_stack *stack1, t_stack *stack2)
+void	push_from_to(t_stack *stack1, t_stack *stack2, t_mode mode)
 {
 	int	value;
 
@@ -22,7 +22,8 @@ void	push_from_to(t_stack *stack1, t_stack *stack2)
 	}
 	value = pop(stack1);
 	push_init(stack2, value);
-	ft_printf("p%c\n", stack2->name);
+	if(mode == visible)
+		ft_printf("p%c\n", stack2->name);
 }
 
 int	pop(t_stack *stack)

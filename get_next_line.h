@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:34:10 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 19:56:14 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 15:44:16 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-size_t	ft_strlen(const char *s, char const c);
+size_t	ft_strlen_gnl(const char *s, char const c);
 char	*get_next_line(int fd);
 char	*ft_memchar(char *str, char c);
 char	*ft_strdup(char const *const memory);

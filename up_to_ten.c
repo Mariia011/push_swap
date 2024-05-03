@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 12:21:50 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/02 16:37:00 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:11:55 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	up_to_ten(t_stack *stack, t_stack *stack1)
 	while (if_sorted(stack) == NULL && count_nodes(stack) > 3)
 	{
 		process_til_sorted(stack, cheap);
-		push_from_to(stack, stack1);
+		push_from_to(stack, stack1, visible);
 		cheap = the_cheapest(stack);
 	}
 	if (count_nodes(stack) == 3 && if_sorted(stack) == NULL)
@@ -48,6 +48,6 @@ void	up_to_ten(t_stack *stack, t_stack *stack1)
 		process_til_sorted(stack, the_cheapest(stack));
 	while (!if_empty(stack1))
 	{
-		push_from_to(stack1, stack);
+		push_from_to(stack1, stack, visible);
 	}
 }
