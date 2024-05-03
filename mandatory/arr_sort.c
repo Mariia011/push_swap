@@ -6,11 +6,17 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:10:27 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/03 13:50:38 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:49:32 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	__exit_handle(char *err)
+{
+	ft_putstr_fd(err, 2);
+	exit(EXIT_FAILURE);
+}
 
 int	*make_arr(t_stack *the_a)
 {

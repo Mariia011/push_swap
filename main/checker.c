@@ -6,7 +6,7 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:09:15 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/03 19:27:31 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:54:56 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-void error_handle(t_stack *the_a, t_stack *the_b)
+void	error_handle(t_stack *the_a, t_stack *the_b)
 {
 	clear_it(the_a);
 	clear_it(the_b);
 	__exit_handle("Error\n");
 }
 
-void parce_it(t_stack *the_a, t_stack *the_b, char *input)
+void	parce_it(t_stack *the_a, t_stack *the_b, char *input)
 {
 	if (!ft_strcmp(input, "sa\n"))
 		swap(the_a, silent);
@@ -79,7 +79,7 @@ void	checker(t_stack *a, t_stack *b)
 	}
 }
 
-int fullsorted(t_stack *the_a)
+int	fullsorted(t_stack *the_a)
 {
 	t_node	*tmp;
 
@@ -93,11 +93,13 @@ int fullsorted(t_stack *the_a)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*the_a;
 	t_stack	*the_b;
 
+	if (argc == 1)
+		return (1);
 	the_a = init_from_input(argc, argv, 'a');
 	if (the_a == NULL)
 	{
