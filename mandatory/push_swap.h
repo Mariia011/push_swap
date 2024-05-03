@@ -6,14 +6,14 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:58 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/03 16:08:29 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:28:12 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <stdlib.h>

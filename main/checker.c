@@ -6,11 +6,11 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:09:15 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/03 16:09:37 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:27:31 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../bonus/checker.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
