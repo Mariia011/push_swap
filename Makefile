@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_BONUS = checker
 CC = cc
-FLAGS =  -Wall -Wextra -Werror
+FLAGS =  -Wall -Wextra -Werror #-fsanitize=address
 HELPER_PATH = ./ft_printf/
 
 PRINTF = $(HELPER_PATH)libftprintf.a

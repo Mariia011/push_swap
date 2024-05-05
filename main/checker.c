@@ -6,39 +6,11 @@
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 18:09:15 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/03 19:54:56 by marikhac         ###   ########.fr       */
+/*   Updated: 2024/05/05 19:29:54 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../bonus/checker.h"
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	res;
-
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (*s1)
-	{
-		if (*s1 != *s2)
-			break ;
-		s1++;
-		s2++;
-	}
-	res = ((const unsigned char)(*s1) - (const unsigned char)(*s2));
-	if (res < 0)
-		return (-1);
-	if (res > 0)
-		return (1);
-	return (0);
-}
-
-void	error_handle(t_stack *the_a, t_stack *the_b)
-{
-	clear_it(the_a);
-	clear_it(the_b);
-	__exit_handle("Error\n");
-}
 
 void	parce_it(t_stack *the_a, t_stack *the_b, char *input)
 {
@@ -79,10 +51,12 @@ void	checker(t_stack *a, t_stack *b)
 	}
 }
 
-int	fullsorted(t_stack *the_a)
+static int	fullsorted(t_stack *the_a)
 {
 	t_node	*tmp;
 
+	if (NULL == the_a || NULL == the_a->head)
+		return (1);
 	tmp = the_a->head->next;
 	while (tmp != the_a->head)
 	{

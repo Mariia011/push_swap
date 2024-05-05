@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   dop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marikhac <marikhac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 15:21:12 by marikhac          #+#    #+#             */
-/*   Updated: 2024/05/05 18:58:26 by marikhac         ###   ########.fr       */
+/*   Created: 2024/05/05 19:28:29 by marikhac          #+#    #+#             */
+/*   Updated: 2024/05/05 19:29:44 by marikhac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mandatory/push_swap.h"
+#include "checker.h"
 
-int	main(int argc, char **argv)
+void	error_handle(t_stack *the_a, t_stack *the_b)
 {
-	t_stack	*the_a;
-	t_stack	*the_b;
-
-	if (argc == 1)
-		return (1);
-	the_a = init_from_input(argc, argv, 'a');
-	if (the_a == NULL)
-	{
-		__exit_handle("Error\n");
-	}
-	the_b = stack_init_empty('b');
-	sort_it(the_a, the_b);
 	clear_it(the_a);
 	clear_it(the_b);
-	free(the_b);
-	free(the_a);
+	__exit_handle("Error\n");
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	res;
+
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	while (*s1)
+	{
+		if (*s1 != *s2)
+			break ;
+		s1++;
+		s2++;
+	}
+	res = ((const unsigned char)(*s1) - (const unsigned char)(*s2));
+	if (res < 0)
+		return (-1);
+	if (res > 0)
+		return (1);
 	return (0);
 }
